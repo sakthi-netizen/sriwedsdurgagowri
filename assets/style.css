@@ -19,6 +19,7 @@
   --leaf: #5f7a3a;
 
   --font-script: 'Parisienne', cursive;
+  --font-script-invite: 'Beau Rivage', cursive;
   --font-display: 'Playfair Display', serif;
   --font-body: 'Cormorant Garamond', serif;
   --font-label: 'Marcellus', serif;
@@ -64,9 +65,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
 .eyebrow.center { text-align: center; }
 
 .script-xl {
-  font-family: var(--font-script);
+  font-family: var(--font-script-invite);
   color: var(--olive-deep);
-  font-size: clamp(2.6rem, 9vw, 4.6rem);
+  font-size: clamp(3.2rem, 11vw, 5.7rem);
   line-height: 1.15;
   margin: 4px 0 10px;
   text-align: center;
@@ -86,9 +87,9 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
 }
 
 .script-md {
-  font-family: var(--font-script);
+  font-family: var(--font-script-invite);
   color: var(--olive-deep);
-  font-size: 2.1rem;
+  font-size: 2.6rem;
   margin: 6px 0;
 }
 
@@ -97,7 +98,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
   font-style: normal;
   font-weight: 600;
   color: var(--maroon);
-  font-size: 1.05rem;
+  font-size: 0.93rem;
   letter-spacing: 0.06em;
   text-align: center;
   margin: 0 0 4px;
