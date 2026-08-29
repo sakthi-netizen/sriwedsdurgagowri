@@ -104,6 +104,17 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
   margin: 6px 0;
 }
 
+.note-label {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--maroon);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin: 0 0 4px;
+}
+
 .heading-script {
   font-family: var(--font-script);
   color: var(--olive-deep);
