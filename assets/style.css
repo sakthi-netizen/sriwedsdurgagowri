@@ -1,0 +1,468 @@
+/* ==========================================================================
+   Sri Sakthi weds Durgagowri — theme extracted from the invitation artwork:
+   ivory/paisley background, olive-green calligraphy headings, deep maroon +
+   gold accents, lotus-and-vine ornamentation.
+   ========================================================================== */
+
+:root {
+  --cream: #f7efdd;
+  --cream-2: #f0e6cd;
+  --paper: #fbf5e8;
+  --maroon: #7c1f2b;
+  --maroon-deep: #5a1420;
+  --gold: #b8862f;
+  --gold-light: #d9b25c;
+  --olive: #4c5a26;
+  --olive-deep: #3a4519;
+  --ink: #4a3a2a;
+  --ink-soft: #6b5a45;
+  --leaf: #5f7a3a;
+
+  --font-script: 'Parisienne', cursive;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-label: 'Marcellus', serif;
+
+  --max-width: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--cream);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(184, 134, 47, 0.06) 0, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(124, 31, 43, 0.05) 0, transparent 45%),
+    repeating-linear-gradient(45deg, rgba(76, 90, 38, 0.025) 0 2px, transparent 2px 60px);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3 { margin: 0; font-weight: 500; }
+
+/* ---------- typography helpers ---------- */
+
+.eyebrow {
+  font-family: var(--font-label);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--maroon);
+  margin: 0 0 6px;
+}
+.eyebrow.center { text-align: center; }
+
+.script-xl {
+  font-family: var(--font-script);
+  color: var(--olive-deep);
+  font-size: clamp(2.6rem, 9vw, 4.6rem);
+  line-height: 1.15;
+  margin: 4px 0 10px;
+  text-align: center;
+}
+.script-xl .amp,
+.script-xl .weds {
+  font-size: 0.55em;
+  color: var(--maroon);
+  display: inline-block;
+  padding: 0 0.15em;
+}
+
+.script-md {
+  font-family: var(--font-script);
+  color: var(--olive-deep);
+  font-size: 2.1rem;
+  margin: 6px 0;
+}
+
+.heading-script {
+  font-family: var(--font-script);
+  color: var(--olive-deep);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.cover-sub, .hero-sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  text-align: center;
+  font-size: 1.05rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ---------- ornamental dividers ---------- */
+
+.mini-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 18px 0;
+  color: var(--gold);
+}
+.mini-divider::before,
+.mini-divider::after {
+  content: '';
+  height: 1px;
+  width: 46px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.mini-divider span { font-size: 0.9rem; }
+.mini-divider.small { margin: 10px 0 14px; }
+
+/* ---------- buttons ---------- */
+
+.btn-gold {
+  font-family: var(--font-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #3a2a10;
+  border: none;
+  padding: 14px 34px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(124, 31, 43, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(124, 31, 43, 0.24); }
+
+.btn-outline {
+  font-family: var(--font-label);
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  color: var(--maroon-deep);
+  padding: 10px 16px;
+  border-radius: 999px;
+  display: inline-block;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.btn-outline:hover { background: var(--maroon); color: var(--paper); border-color: var(--maroon); }
+
+/* ==========================================================================
+   COVER SCREEN
+   ========================================================================== */
+
+#cover {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  text-align: center;
+  padding: 24px;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
+}
+#cover.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.cover-inner { max-width: 460px; }
+.cover-hint {
+  margin-top: 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+
+/* corner vine ornaments (shared by #cover and .hero) */
+.corner {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.85;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.corner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 25%, rgba(184,134,47,0.55) 0 6px, transparent 7px),
+    radial-gradient(circle at 40% 45%, rgba(124,31,43,0.4) 0 5px, transparent 6px),
+    radial-gradient(circle at 60% 65%, rgba(184,134,47,0.5) 0 4px, transparent 5px);
+}
+.corner::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-top: 2px solid var(--leaf);
+  border-left: 2px solid var(--leaf);
+  border-radius: 0 0 0 60px;
+  opacity: 0.55;
+}
+.corner-tl { top: 10px; left: 10px; }
+.corner-tr { top: 10px; right: 10px; transform: scaleX(-1); }
+.corner-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+.corner-br { bottom: 10px; right: 10px; transform: scale(-1); }
+
+/* ==========================================================================
+   MAIN SITE
+   ========================================================================== */
+
+#site { position: relative; }
+
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 70px 24px;
+}
+.alt-bg {
+  max-width: 100%;
+  background: var(--cream-2);
+  border-top: 1px solid rgba(184,134,47,0.25);
+  border-bottom: 1px solid rgba(184,134,47,0.25);
+}
+.alt-bg > * { max-width: var(--max-width); margin-left: auto; margin-right: auto; }
+
+/* ---------- hero ---------- */
+
+.hero {
+  position: relative;
+  padding: 90px 24px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-frame-wrap { margin-top: 30px; }
+.hero-frame {
+  max-width: 380px;
+  margin: 0 auto;
+  border: 10px solid var(--paper);
+  outline: 1px solid var(--gold);
+  outline-offset: -6px;
+  border-radius: 6px;
+  box-shadow: 0 18px 40px rgba(74, 30, 20, 0.18);
+  overflow: hidden;
+}
+.hero-frame img { width: 100%; }
+
+.scroll-cue {
+  margin-top: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollDown 1.8s ease-in-out infinite;
+}
+@keyframes scrollDown { 0% { transform: scaleY(0.4); opacity: 0.3; } 50% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(0.4); opacity: 0.3; } }
+
+/* ---------- countdown ---------- */
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.count-box {
+  background: var(--paper);
+  border: 1px solid rgba(184,134,47,0.4);
+  border-radius: 12px;
+  padding: 18px 16px;
+  min-width: 78px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(74,30,20,0.08);
+}
+.count-box span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--maroon-deep);
+  font-weight: 600;
+}
+.count-box small {
+  font-family: var(--font-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.62rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- event cards ---------- */
+
+.event-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .event-cards { grid-template-columns: 1fr; }
+}
+
+.event-card {
+  background: var(--paper);
+  border: 1px solid rgba(184,134,47,0.35);
+  border-radius: 18px;
+  padding: 32px 26px;
+  text-align: center;
+  box-shadow: 0 10px 26px rgba(74,30,20,0.08);
+}
+.event-glyph { font-size: 1.8rem; }
+.event-card h3 {
+  font-family: var(--font-display);
+  color: var(--maroon-deep);
+  font-size: 1.3rem;
+  margin-top: 6px;
+}
+.event-date {
+  font-weight: 600;
+  color: var(--ink);
+  margin: 4px 0 2px;
+}
+.event-time { color: var(--ink-soft); margin: 0 0 10px; }
+.event-venue { color: var(--ink); margin: 0 0 20px; line-height: 1.5; }
+.event-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------- artwork showcase ---------- */
+
+.art-frame-wrap { display: flex; justify-content: center; }
+.art-frame {
+  max-width: 420px;
+  border: 10px solid var(--paper);
+  outline: 1px solid var(--gold);
+  outline-offset: -6px;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgba(74,30,20,0.2);
+  overflow: hidden;
+}
+.closing-note {
+  text-align: center;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin: 26px auto 0;
+  line-height: 1.7;
+}
+
+/* ---------- venues ---------- */
+
+.venue-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media (max-width: 640px) {
+  .venue-grid { grid-template-columns: 1fr; }
+}
+.venue-card {
+  background: var(--paper);
+  border: 1px solid rgba(184,134,47,0.35);
+  border-radius: 18px;
+  padding: 26px;
+  text-align: center;
+  box-shadow: 0 10px 26px rgba(74,30,20,0.08);
+}
+.venue-card h3 {
+  font-family: var(--font-label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--maroon);
+  margin-bottom: 8px;
+}
+.venue-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--olive-deep);
+  margin: 0;
+}
+.venue-address { color: var(--ink-soft); margin: 2px 0 16px; }
+.map-embed {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(184,134,47,0.4);
+  margin-bottom: 16px;
+  height: 180px;
+}
+.map-embed iframe { width: 100%; height: 100%; border: 0; }
+
+/* ---------- footer ---------- */
+
+.footer {
+  text-align: center;
+  padding: 60px 24px 80px;
+}
+.footer-note {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---------- scroll reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- falling petals ---------- */
+
+#petal-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+}
+.petal {
+  position: absolute;
+  top: -5%;
+  font-size: 1rem;
+  opacity: 0.75;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  will-change: transform;
+}
+@keyframes fall {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  8% { opacity: 0.8; }
+  100% { transform: translateY(110vh) translateX(var(--drift, 40px)) rotate(340deg); opacity: 0; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 54px 18px; }
+  .hero { padding: 70px 18px 46px; }
+}
