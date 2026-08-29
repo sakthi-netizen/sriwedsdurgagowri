@@ -107,6 +107,11 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
   max-width: 420px;
   margin: 0 auto;
 }
+.cover-sub {
+  font-family: var(--font-body);
+  color: var(--olive-deep);
+  font-weight: 500;
+}
 
 /* ---------- ornamental dividers ---------- */
 
