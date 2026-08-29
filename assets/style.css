@@ -77,6 +77,12 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
   display: inline-block;
   padding: 0 0.15em;
 }
+.script-xl .cap-s {
+  font-family: var(--font-label);
+  font-size: 0.82em;
+  font-weight: 500;
+  vertical-align: -0.03em;
+}
 
 .script-md {
   font-family: var(--font-script);
