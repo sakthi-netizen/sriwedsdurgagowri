@@ -23,6 +23,7 @@
   --font-display: 'Playfair Display', serif;
   --font-body: 'Cormorant Garamond', serif;
   --font-label: 'Marcellus', serif;
+  --font-sharp: 'Asap Sharp', sans-serif;
 
   --max-width: 720px;
 }
@@ -105,12 +106,12 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
 }
 
 .note-label {
-  font-family: var(--font-display);
-  font-style: italic;
+  font-family: var(--font-sharp);
+  font-style: normal;
   font-weight: 600;
   color: var(--maroon);
-  font-size: 1.15rem;
-  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
   text-align: center;
   margin: 0 0 4px;
 }
