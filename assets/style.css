@@ -299,6 +299,10 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
 
 /* ---------- countdown ---------- */
 
+#countdown-section .eyebrow {
+  margin-bottom: 24px;
+}
+
 .countdown {
   display: flex;
   justify-content: center;
