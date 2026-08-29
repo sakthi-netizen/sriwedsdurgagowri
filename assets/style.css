@@ -19,7 +19,6 @@
   --leaf: #5f7a3a;
 
   --font-script: 'Parisienne', cursive;
-  --font-script-cover: 'Dancing Script', cursive;
   --font-display: 'Playfair Display', serif;
   --font-body: 'Cormorant Garamond', serif;
   --font-label: 'Marcellus', serif;
@@ -84,18 +83,6 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
   font-size: 0.82em;
   font-weight: 500;
   vertical-align: -0.03em;
-}
-
-/* cover page names use Dancing Script instead of the site-wide script font */
-#cover .script-xl {
-  font-family: var(--font-script-cover);
-  font-weight: 700;
-}
-#cover .script-xl .cap-s {
-  font-family: var(--font-script-cover);
-  font-size: 1em;
-  font-weight: 700;
-  vertical-align: 0;
 }
 
 .script-md {
