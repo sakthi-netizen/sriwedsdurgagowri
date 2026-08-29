@@ -407,6 +407,10 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
   line-height: 1.7;
 }
 
+#artwork {
+  padding-top: 34px;
+}
+
 /* ---------- venues ---------- */
 
 .venue-grid {
@@ -500,4 +504,8 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
 @media (max-width: 480px) {
   .section { padding: 54px 18px; }
   .hero { padding: 70px 18px 46px; }
+  #artwork { padding-top: 16px; padding-bottom: 36px; }
+  #artwork .closing-note { margin-top: 16px; font-size: 0.95rem; }
+  #artwork .scroll-cue { margin-top: 20px; }
+  #artwork .art-frame { max-width: 320px; }
 }
