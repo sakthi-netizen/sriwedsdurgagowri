@@ -90,7 +90,7 @@ h1, h2, h3 { margin: 0; font-weight: 500; }
 }
 
 .note-label {
-  font-family: var(--font-sharp);
+  font-family: var(--font-label);
   font-style: normal;
   font-weight: 600;
   color: var(--maroon);
